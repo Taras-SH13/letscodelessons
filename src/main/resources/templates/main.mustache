@@ -1,6 +1,14 @@
 <html>
+<style>
+    .center {
+        width: 200px; /* Ширина элемента в пикселах */
+        padding: 10px; /* Поля вокруг текста */
+        margin: auto; /* Выравниваем по центру */
+        background: #fc0; /* Цвет фона */
+    }
+</style>
 <body>
-<div>
+<div class="center">
     <form method="post">
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Тэг">
@@ -9,13 +17,13 @@
 
 </div>
 
-<div>Список сообщений</div>
-<form method="post" action="filter">
+<div class="center">Список сообщений</div>
+<form method="post" action="filter" class="center">
     <input type="text" name="filter">
     <button type="submit">Найти</button>
 </form>
 {{#messages}}
-    <div>
+    <div class="center">
         <b>{{id}}</b>
         <span>{{text}}</span>
         <i>{{tag}}</i>
