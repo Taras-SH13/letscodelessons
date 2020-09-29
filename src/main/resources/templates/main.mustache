@@ -4,14 +4,22 @@
         width: 200px; /* Ширина элемента в пикселах */
         padding: 10px; /* Поля вокруг текста */
         margin: auto; /* Выравниваем по центру */
-        background: #fc0; /* Цвет фона */
+        background: #ffff; /* Цвет фона */
     }
 </style>
 <body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="submit" value="Sign Out"/>
+
+    </form>
+</div>
 <div class="center">
     <form method="post">
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Тэг">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Добавить</button>
     </form>
 
@@ -20,6 +28,7 @@
 <div class="center">Список сообщений</div>
 <form method="post" action="filter" class="center">
     <input type="text" name="filter">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <button type="submit">Найти</button>
 </form>
 {{#messages}}
